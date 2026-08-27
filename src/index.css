@@ -1,0 +1,95 @@
+/* ============================================================
+   Global Styles — Futuristic Dark Neon Blue Theme
+   ============================================================
+   Import order matters for Tailwind v4:
+   Google Fonts @import must come FIRST, then tailwindcss.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@400;500;700;900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ── Custom Tailwind v4 theme tokens ── */
+@theme inline {
+  --color-background:  hsl(var(--background));
+  --color-foreground:  hsl(var(--foreground));
+  --color-border:      hsl(var(--border));
+  --color-input:       hsl(var(--input));
+  --color-ring:        hsl(var(--ring));
+
+  --color-primary:          hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary:          hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted:             hsl(var(--muted));
+  --color-muted-foreground:  hsl(var(--muted-foreground));
+
+  --color-accent:            hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive:            hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --font-sans:    var(--app-font-sans);
+  --font-mono:    var(--app-font-mono);
+  --font-display: var(--app-font-display);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* ── CSS variables — neon blue cyberpunk palette ── */
+:root {
+  --app-font-sans:    'Inter', sans-serif;
+  --app-font-mono:    Menlo, monospace;
+  --app-font-display: 'Orbitron', sans-serif;
+  --radius: 0.5rem;
+
+  /* Deep near-black background */
+  --background: 226 50% 4%;
+  --foreground: 210 20% 98%;
+
+  --border: 210 100% 56%;
+  --input:  210 100% 56%;
+  --ring:   210 100% 56%;
+
+  /* Neon electric blue — main accent colour */
+  --primary:            210 100% 56%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary:            226 40% 12%;
+  --secondary-foreground: 210 20% 90%;
+
+  --muted:            226 40% 15%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent:            210 100% 56%;
+  --accent-foreground: 0 0% 100%;
+
+  /* Red for AC / error states */
+  --destructive:            0 100% 60%;
+  --destructive-foreground: 0 0% 100%;
+}
+
+/* ── Base reset ── */
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: hsl(var(--border) / 0.15);
+  }
+  body {
+    font-family: var(--app-font-sans);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ── Utility: hide scrollbar while keeping scroll ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
